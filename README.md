@@ -24,7 +24,7 @@ python3 -m http.server 8000
 
 ## GitHub Pages 发布
 
-仓库内含 `.github/workflows/pages.yml`。将代码推送到 GitHub 的 `main` 分支后，在仓库 **Settings → Pages → Build and deployment** 中将 Source 设为 **GitHub Actions**，工作流会发布静态文件。项目采用相对资源路径，可以部署在仓库子目录中。
+将代码推送到 GitHub 的 `main` 分支后，在仓库 **Settings → Pages → Build and deployment** 中将 Source 设为 **Deploy from a branch**，分支选 `main`，目录选 `/(root)` 并保存。项目采用相对资源路径，可以在仓库子路径中正常运行。
 
 ## 本地存档
 
