@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#a5dfab" />
+  <meta name="description" content="在小小彩虹牧场照顾动物、种植蔬菜、收集星星，开启温暖的农场生活。" />
+  <title>小小彩虹牧场</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="小小彩虹牧场首页"><span class="brand-mark">🌈</span><span>小小彩虹牧场<small>RAINBOW RANCH</small></span></a>
+      <div class="weather"><span id="weatherIcon">☀️</span><span id="weatherText">晴朗 · 白天</span></div>
+      <div class="wallet"><span>🪙 <b id="coins">0</b></span><span>⭐ <b id="stars">0</b></span></div>
+      <button class="icon-button" id="soundButton" aria-label="切换声音">🔊</button>
+      <button class="icon-button" id="menuButton" aria-label="打开菜单">☰</button>
+    </header>
+    <section class="scene-wrap" aria-label="游戏场景">
+      <div class="scene scene-ranch active" id="scene-ranch">
+        <div class="sky"><span class="sun">☀️</span><span class="cloud cloud-one">☁️</span><span class="cloud cloud-two">☁️</span><span class="bird">🐦</span></div>
+        <div class="distant-hills"></div><div class="ground"></div>
+        <div class="scene-title"><span id="greeting">早上好，农场小主人！</span><small>今天也来和动物朋友玩吧</small></div>
+        <div class="ranch-map">
+          <div class="pond">💧<small>小池塘</small></div><div class="windmill">🌬️</div>
+          <button class="building house" data-action="rest"><span>🏡</span><small>温暖小屋</small></button>
+          <button class="building coop" data-scene="coop"><span>🐔</span><small>鸡舍 · 捡鸡蛋</small><i class="ping">✦</i></button>
+          <button class="building barn" data-action="cow"><span>🐄</span><small>牛棚 · 挤牛奶</small><i class="ping">✦</i></button>
+          <button class="building kitchen" data-scene="kitchen"><span>🍳</span><small>烹饪小屋</small></button>
+          <button class="building shop" data-action="shop"><span>🛍️</span><small>彩虹商店</small></button>
+          <button class="garden-plot" data-scene="garden"><span>🥕 🍅 🌱</span><small>我的菜地</small></button>
+          <div class="fence fence-a"></div><div class="fence fence-b"></div><div class="tree tree-a">🌳</div><div class="tree tree-b">🌸</div>
+          <button class="animal animal-chicken" data-action="animal" data-name="小花">🐔<small>小花</small></button>
+          <button class="animal animal-sheep" data-action="animal" data-name="棉棉">🐑<small>棉棉</small></button>
+          <button class="animal animal-cow" data-action="cow">🐄<small>花花</small></button>
+          <span class="flower flower-a">🌼</span><span class="flower flower-b">🌷</span><span class="flower flower-c">🌻</span>
+          <div class="player" id="player">🧑🏻‍🌾</div>
+        </div>
+        <div class="move-hint">轻点动物和建筑，来探索牧场吧！</div>
+      </div>
+      <div class="scene scene-coop" id="scene-coop"><div class="inside-heading"><button class="back-button" data-scene="ranch">← 回牧场</button><div><h2>🐔 咯咯鸡舍</h2><p>找找藏在干草里的新鲜鸡蛋吧！</p></div><span class="scene-count">鸡蛋 <b id="coopEggs">0</b></span></div><div class="coop-floor"><div class="coop-window">☀️</div><div class="coop-fence"></div><div class="hay">🌾</div><div class="hay hay-two">🌾</div><div class="feeder">🌽<small>饲料槽</small></div><button class="coop-chicken ch-a" data-action="egg">🐔</button><button class="coop-chicken ch-b" data-action="egg">🐓</button><button class="coop-chicken ch-c" data-action="egg">🐤</button><button class="egg egg-a" data-action="collectEgg">🥚</button><button class="egg egg-b" data-action="collectEgg">🥚</button><button class="egg egg-c" data-action="collectEgg">🥚</button><div class="player coop-player">🧑🏻‍🌾</div></div><button class="big-action" data-action="collectEgg">🧺 捡起鸡蛋</button></div>
+      <div class="scene scene-garden" id="scene-garden"><div class="inside-heading"><button class="back-button" data-scene="ranch">← 回牧场</button><div><h2>🌱 彩虹小菜园</h2><p>种下一颗种子，收获满满的快乐！</p></div><span class="scene-count">种子 <b id="seedCount">0</b></span></div><div class="garden-area"><div class="garden-sun">🌤️</div><div class="garden-grid" id="gardenGrid"></div><div class="garden-side">💧<br><small>雨水帮我们浇灌</small></div></div><div class="action-row"><button class="big-action" data-action="plant">🌱 播种</button><button class="big-action harvest" data-action="harvest">🧺 收获成熟作物</button></div></div>
+      <div class="scene scene-kitchen" id="scene-kitchen"><div class="inside-heading"><button class="back-button" data-scene="ranch">← 回牧场</button><div><h2>🍳 香喷喷的厨房</h2><p>选择食谱，把农场食材变成美味料理！</p></div></div><div class="kitchen-room"><div class="kitchen-window">🌤️</div><div class="shelf">🫙 🍯 🌼</div><div class="stove">🔥<span>🥘</span></div><div class="counter">🍅　🥛　🥬</div><div class="recipe-cards" id="recipes"></div></div></div>
+      <div class="scene scene-shop" id="scene-shop"><div class="inside-heading"><button class="back-button" data-scene="ranch">← 回牧场</button><div><h2>🛍️ 彩虹杂货铺</h2><p>用劳动收获的金币，添置喜欢的小物件。</p></div><span class="scene-count">🪙 <b id="shopCoins">0</b></span></div><div class="shop-grid" id="shopGrid"></div></div>
+    </section>
+    <nav class="bottom-nav"><button class="nav-item active" data-scene="ranch"><span>🏡</span>牧场</button><button class="nav-item" data-scene="coop"><span>🐔</span>鸡舍</button><button class="nav-item" data-scene="garden"><span>🌱</span>菜地</button><button class="nav-item" data-scene="kitchen"><span>🍳</span>厨房</button><button class="nav-item" data-action="shop"><span>🛍️</span>商店</button><button class="nav-item" data-action="orders"><span class="nav-badge" id="orderBadge">1</span><span>📜</span>订单</button><button class="nav-item" data-action="bag"><span>🎒</span>背包</button></nav>
+  </main>
+  <div class="toast" id="toast" role="status"></div>
+  <div class="modal-backdrop" id="modalBackdrop"><section class="modal" id="modal" role="dialog" aria-modal="true"></section></div>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
