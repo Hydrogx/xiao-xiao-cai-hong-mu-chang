@@ -4,3 +4,22 @@
 @media(max-width:700px){body{background:#fff}.game-shell{width:100vw;height:100dvh;min-height:0;border:0;border-radius:0}.topbar{height:62px;flex-basis:62px;padding:0 11px;gap:7px}.brand{font-size:14px;gap:5px}.brand-mark{font-size:26px}.brand small{font-size:7px}.weather{padding:7px 9px;font-size:10px}.wallet{gap:3px}.wallet span{padding:7px 8px;font-size:10px}.icon-button{height:32px;width:32px}.bottom-nav{height:64px;flex-basis:64px;gap:0;padding:4px 3px 6px;justify-content:space-around}.nav-item{min-width:0;flex:1;padding:4px 3px;font-size:9px}.nav-item span:first-child{font-size:20px}.scene-title{left:13px;top:12px}.building small{font-size:8px;padding:4px 6px}.house{left:7%;top:30%}.coop{left:36%;top:28%}.barn{right:5%;top:32%}.kitchen{left:68%;top:62%}.shop{left:17%;top:63%}.garden-plot{left:41%;top:68%;padding:7px 8px;font-size:18px}.animal-chicken{left:21%;top:46%}.animal-sheep{left:61%;top:45%}.animal-cow{right:21%;top:56%}.pond{width:83px;height:45px;left:2%;bottom:6%;font-size:15px}.pond small{font-size:8px}.tree-a{right:1%;font-size:35px}.tree-b{left:2%;font-size:34px}.windmill{left:77%;font-size:27px}.move-hint{font-size:10px;bottom:8px}.inside-heading{padding:11px 12px;gap:9px}.inside-heading h2{font-size:16px}.inside-heading p{font-size:9px}.back-button{padding:9px 9px;font-size:10px}.scene-count{font-size:10px;padding:8px}.garden-grid{width:81%;height:64%;gap:8px;padding:10px;border-width:7px}.garden-tile{font-size:27px}.garden-side{right:2%;font-size:25px}.garden-side small{width:65px}.kitchen-window{left:5%;width:70px;height:65px;font-size:32px}.shelf{right:5%;width:135px;font-size:20px}.counter{left:7%;right:7%}.recipe-cards{bottom:6%}.recipe-card{flex-basis:108px;padding:7px}.shop-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;padding:12px}.shop-card{padding:9px}.coop-floor{left:2%;right:2%}}
 @media(max-width:400px){.weather{display:none}.brand{margin-right:auto}.wallet{margin-left:auto}.nav-item{font-size:8px}.nav-item span:first-child{font-size:18px}.move-hint{max-width:94%;white-space:normal;text-align:center}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+/* Local CC0 ranch sprites: Kenney Animal Pack Redux + Farm Expansion. */
+.scene-ranch .ground{background-image:linear-gradient(165deg,#9dd791d9,#78c67cd9 66%),url('./assets/farm/tilemap.png');background-size:auto,296px 126px;background-blend-mode:normal,soft-light}
+.animal{background:#fff8ef;border:3px solid #fff;padding:4px 7px 3px;display:flex;flex-direction:column;align-items:center;min-width:76px}
+.animal img{width:clamp(43px,6vw,65px);height:clamp(43px,6vw,65px);object-fit:contain;image-rendering:auto;filter:drop-shadow(0 3px 1px #55452a26)}
+.animal-chicken img{animation:animal-peck 2.5s ease-in-out infinite}
+.animal-sheep img{animation:animal-breathe 2.2s ease-in-out infinite}
+.animal-cow img{animation:animal-tail 3s ease-in-out infinite}
+.coop-chicken{background:transparent;border:0;padding:0;display:grid;place-items:center}
+.coop-chicken img{width:clamp(54px,8vw,86px);height:clamp(54px,8vw,86px);object-fit:contain;filter:drop-shadow(0 5px 2px #3e302b25);animation:animal-breathe 2s ease-in-out infinite}
+.ch-b img{animation-delay:.4s}.ch-c img{animation-delay:.8s}
+.player img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 4px 2px #4b4a3226);animation:avatar-step .72s ease-in-out infinite alternate}
+.player{font-size:0;background:transparent!important;box-shadow:none!important}
+@keyframes animal-peck{0%,78%,100%{transform:rotate(0)}84%{transform:rotate(12deg) translateY(2px)}90%{transform:rotate(-4deg)}}
+@keyframes animal-breathe{0%,100%{transform:translateY(0) scaleY(1)}50%{transform:translateY(-3px) scaleY(1.025)}}
+@keyframes animal-tail{0%,75%,100%{transform:rotate(0)}82%{transform:rotate(-5deg)}90%{transform:rotate(4deg)}}
+@keyframes avatar-step{from{transform:translateY(0)}to{transform:translateY(-3px)}}
+.animal:active img,.coop-chicken:active img{animation:happy-hop .42s ease-out}
+@keyframes happy-hop{50%{transform:translateY(-17px) rotate(-8deg) scale(1.12)}}
+.player img{image-rendering:auto}
